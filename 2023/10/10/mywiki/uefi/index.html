@@ -12,37 +12,37 @@
         <meta property="article:author" content="John Doe">
     
     
-        <link rel="icon" href="/img/favicon.ico">
+        <link rel="icon" href="/LoongsonGuide/img/favicon.ico">
     
     
-<link rel="stylesheet" href="/css/minireset.min.css">
+<link rel="stylesheet" href="/LoongsonGuide/css/minireset.min.css">
 
     
-<link rel="stylesheet" href="/css/all.min.css">
+<link rel="stylesheet" href="/LoongsonGuide/css/all.min.css">
 
     
-<link rel="stylesheet" href="/css/csshake.min.css">
+<link rel="stylesheet" href="/LoongsonGuide/css/csshake.min.css">
 
     
-<link rel="stylesheet" href="/css/hljs/lioshi.css">
+<link rel="stylesheet" href="/LoongsonGuide/css/hljs/lioshi.css">
 
     
-<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+<link rel="stylesheet" href="/LoongsonGuide/css/jquery.fancybox.min.css">
 
     
-<link rel="stylesheet" href="/styl/main.css">
+<link rel="stylesheet" href="/LoongsonGuide/styl/main.css">
 
     
-<script src="/js/jquery.min.js"></script>
+<script src="/LoongsonGuide/js/jquery.min.js"></script>
 
     
-<script src="/js/highlight.min.js"></script>
+<script src="/LoongsonGuide/js/highlight.min.js"></script>
 
     
-<script src="/js/jquery.fancybox.min.js"></script>
+<script src="/LoongsonGuide/js/jquery.fancybox.min.js"></script>
 
     
-<script src="/js/clipboard.min.js"></script>
+<script src="/LoongsonGuide/js/clipboard.min.js"></script>
 
     
 <meta name="generator" content="Hexo 6.3.0"></head>
@@ -58,23 +58,23 @@
       <nav class="main-nav">
         
           
-            <a href="/">首页</a>
+            <a href="/LoongsonGuide/">首页</a>
           
         
           
-            <a href="/archives">归档</a>
+            <a href="/LoongsonGuide/archives">归档</a>
           
         
           
-            <a href="/categories">分类</a>
+            <a href="/LoongsonGuide/categories">分类</a>
           
         
           
-            <a href="/tags">标签</a>
+            <a href="/LoongsonGuide/tags">标签</a>
           
         
           
-            <a href="/friends">友链</a>
+            <a href="/LoongsonGuide/friends">友链</a>
           
         
           
@@ -82,7 +82,7 @@
               <a class="dropbtn">相关链接</a>
               <div class="dropdown-content">
                 
-                  <a href="/2020/07/16/3a6087ce/">文章</a>
+                  <a href="/LoongsonGuide/2020/07/16/3a6087ce/">文章</a>
                 
                   <a target="_blank" rel="noopener" href="https://www.baidu.com">百度一下你就知道</a>
                 
@@ -91,7 +91,7 @@
           
         
           
-            <a href="/about">关于</a>
+            <a href="/LoongsonGuide/about">关于</a>
           
         
       </nav>
@@ -104,7 +104,7 @@
     <article>
         <div class="article-title">
     <h2>
-        <a href="/2023/10/10/mywiki/uefi/" class="shake shake-little" title="我们需要做些什么才能进内核?">
+        <a href="/LoongsonGuide/2023/10/10/mywiki/uefi/" class="shake shake-little" title="我们需要做些什么才能进内核?">
             
             我们需要做些什么才能进内核?
         </a>
@@ -121,7 +121,7 @@
         
         
         <div class="meta meta_auth">
-            <img src="/img/default.png" alt="head" />
+            <img src="/LoongsonGuide/img/default.png" alt="head" />
             <p>Ayden Meng</p>
         </div>
     
@@ -146,18 +146,18 @@
             
             
             
-            <h2 id="UEFI须知"><a href="#UEFI须知" class="headerlink" title="UEFI须知"></a>UEFI须知</h2><h3 id="1-进入UEFI-setup界面"><a href="#1-进入UEFI-setup界面" class="headerlink" title="1. 进入UEFI setup界面"></a>1. 进入UEFI setup界面</h3><p>在串口或者显示界面下显示<code>BDS</code>字样的时候(如下图), 稍微按按上下键即可进入<code>Setup</code>界面<br><img src="/images/uefi/1.png" alt="UEFI Booting"></p>
+            <h2 id="UEFI须知"><a href="#UEFI须知" class="headerlink" title="UEFI须知"></a>UEFI须知</h2><h3 id="1-进入UEFI-setup界面"><a href="#1-进入UEFI-setup界面" class="headerlink" title="1. 进入UEFI setup界面"></a>1. 进入UEFI setup界面</h3><p>在串口或者显示界面下显示<code>BDS</code>字样的时候(如下图), 稍微按按上下键即可进入<code>Setup</code>界面<br><img src="/LoongsonGuide/images/uefi/1.png" alt="UEFI Booting"></p>
 <h3 id="2-Setup界面"><a href="#2-Setup界面" class="headerlink" title="2. Setup界面"></a>2. Setup界面</h3><p>无论是<code>Intel</code>还是<code>loongson</code>, <code>BIOS</code>下都有设置的接口, <code>PMON</code>也有, 无非是显示样式差异, 原理相通. <code>Loongson</code>的<code>UEFI</code>界面如下图</p>
-<p>不同的条目, 用于设置不同的功能. 其中普通用户通常只需要进入<code>BootManager</code>界面选择相应的启动目标即可.<br><img src="/images/uefi/2.png" alt="Setup"></p>
-<h3 id="3-BootManager界面"><a href="#3-BootManager界面" class="headerlink" title="3. BootManager界面"></a>3. BootManager界面</h3><p>在下图区域<code>1</code>中为条目名称, 区域<code>2</code>中为<code>UEFI</code>下解析的路径名(有点专业,不用理解), 总之, 左边看不懂时就看右边, 找相关的关键字, 比如下图, 左侧是设备名, 不太能看出是什么设备, 右侧则有<code>Sata</code>字样可以识别.<br><img src="/images/uefi/3.png" alt="BootManager"></p>
-<h3 id="4-Shell下操作"><a href="#4-Shell下操作" class="headerlink" title="4. Shell下操作"></a>4. Shell下操作</h3><p>通常, 正常情况下, 系统直接启动, 用户无法感知上述界面的存在, 但当出现一些问题时, 我们可能需要进入<code>Shell</code>下进行操作, 如上图中的第二个条目, 选中后回车进入下图界面:<br><img src="/images/uefi/4.png" alt="Shell"></p>
+<p>不同的条目, 用于设置不同的功能. 其中普通用户通常只需要进入<code>BootManager</code>界面选择相应的启动目标即可.<br><img src="/LoongsonGuide/images/uefi/2.png" alt="Setup"></p>
+<h3 id="3-BootManager界面"><a href="#3-BootManager界面" class="headerlink" title="3. BootManager界面"></a>3. BootManager界面</h3><p>在下图区域<code>1</code>中为条目名称, 区域<code>2</code>中为<code>UEFI</code>下解析的路径名(有点专业,不用理解), 总之, 左边看不懂时就看右边, 找相关的关键字, 比如下图, 左侧是设备名, 不太能看出是什么设备, 右侧则有<code>Sata</code>字样可以识别.<br><img src="/LoongsonGuide/images/uefi/3.png" alt="BootManager"></p>
+<h3 id="4-Shell下操作"><a href="#4-Shell下操作" class="headerlink" title="4. Shell下操作"></a>4. Shell下操作</h3><p>通常, 正常情况下, 系统直接启动, 用户无法感知上述界面的存在, 但当出现一些问题时, 我们可能需要进入<code>Shell</code>下进行操作, 如上图中的第二个条目, 选中后回车进入下图界面:<br><img src="/LoongsonGuide/images/uefi/4.png" alt="Shell"></p>
 <h4 id="4-1-显示启动设备"><a href="#4-1-显示启动设备" class="headerlink" title="4.1 显示启动设备"></a>4.1 显示启动设备</h4><p>正常情况下， 进入<code>Shell</code>后仍然会提示启动相关的设备, 如上图, 倘若由于操作过多, 或者显示<code>bug</code>等, 我们还想再次看到相关的显示, 则需要通过<code>map</code>命令再次显示，如下图：</p>
-<p><img src="/images/uefi/5.png" alt="map命令"></p>
+<p><img src="/LoongsonGuide/images/uefi/5.png" alt="map命令"></p>
 <p>可以看到, 其实和默认进入<code>Shell</code>的打印是一样的, 不过为了防止打印被冲刷掉, 还是要会一下.</p>
 <h4 id="4-2-进入设备及查看文件"><a href="#4-2-进入设备及查看文件" class="headerlink" title="4.2 进入设备及查看文件"></a>4.2 进入设备及查看文件</h4><p>看上图, 图中黄色字体, <code>FS0:</code> , <code>BLK0:</code>等, 可以理解为不同设备的重命名, 其中<code>FS</code>开头的标识表示该设备的文件系统可以识别, <code>BLK</code>开头的表示表示该设备不存在文件系统, 或者文件系统不可识别. 总之对我们有意义的就只有<code>FS</code>开头的标识.</p>
 <p>只有含有文件系统的设备我们才能访问, 所以<code>UEFI</code>下需要访问的<code>GRUB</code>, 内核等<code>EFI</code>文件一定是放在<code>UEFI</code>下能够识别的文件系统中的. 也就是<code>FS</code>开头的设备.</p>
 <p>如何访问文件系统中的文件呢, 先看下图:</p>
-<p><img src="/images/uefi/6.png" alt="文件操作"></p>
+<p><img src="/LoongsonGuide/images/uefi/6.png" alt="文件操作"></p>
 <p>进入设备时比较特殊, 输入<code>FS0:</code>即可,不能是<code>cd FS0:</code>, 也不能不加后面的冒号.</p>
 <p>进入设备之后就和linux的操作很类似了, 使用<code>cd</code>, <code>ls</code>即可.</p>
 <p>然后<code>ls</code>看到的緑色显示的文件, 也就是UEFI下的可执行文件–EFI文件. 运行时也无需像linux那样在前面加路径才能执行, UEFI下直接输入文件名即可.</p>
@@ -174,7 +174,7 @@
 <h4 id="4-5-UEFI下更新固件方法"><a href="#4-5-UEFI下更新固件方法" class="headerlink" title="4.5 UEFI下更新固件方法"></a>4.5 UEFI下更新固件方法</h4><p>还有<code>spi</code>命令不得不单独强调, 一个产品往往需要保持更新才能更好的满足用户的需求. 固件是尤其重要的一点.</p>
 <p>当我们需要更新固件(UEFI和PMON都是固件)时, 在<code>Shell</code>下找到文件后, 通过<code>spi -u filename</code>的命令, 即可完成固件更新.</p>
 <p>当然图形界面下也有相关接口, 可以自己理解一下英文再操作.</p>
-<h2 id="GRUB"><a href="#GRUB" class="headerlink" title="GRUB"></a>GRUB</h2><h3 id="GRUB界面"><a href="#GRUB界面" class="headerlink" title="GRUB界面"></a>GRUB界面</h3><p><img src="/images/uefi/7.png" alt="GRUB主界面"></p>
+<h2 id="GRUB"><a href="#GRUB" class="headerlink" title="GRUB"></a>GRUB</h2><h3 id="GRUB界面"><a href="#GRUB界面" class="headerlink" title="GRUB界面"></a>GRUB界面</h3><p><img src="/LoongsonGuide/images/uefi/7.png" alt="GRUB主界面"></p>
 <p>如图, GRUB界面下列出了几个选项, 其中第一项<code>vm.mxd</code>是我自己加的内核, 第二项<code>Loongnix GNU/Linux</code>是系统自带内核, 第三项<code>Advanced options for Loongnix GNU/Linux</code>是高级选项, 通常包含一些恢复模式的选项, 第四项是<code>System Setup</code>–系统设置, 其实就是进入<code>UEFI Setup</code>界面.</p>
 <p>然后在界面的最下方:</p>
 <blockquote>
@@ -186,10 +186,10 @@
 </blockquote>
 <h3 id="1-编辑GRUB选项"><a href="#1-编辑GRUB选项" class="headerlink" title="1. 编辑GRUB选项"></a>1. 编辑GRUB选项</h3><p>通常我们通过<code>UEFI</code>执行<code>GRUB</code>的<code>efi</code>文件即可进入<code>GRUB</code>界面, 然后回车便可以启动内核, 但是倘若内核无法正常启动, 我们需要加串口调试, 就需要我们按<code>e</code>去编辑选项, 比如增加串口或者进入单用户模式等.</p>
 <p>按<code>e</code>后进入下图, 我们可以将光标通过上下左右按键, 移动至<code>linux</code>开头的那一行, 并在行末加入想要的参数比如串口<code>console=ttyS0,115200 earlycon=uart,mmio,0x1fe001e0</code>.</p>
-<p><img src="/images/uefi/8.png" alt="GRUB编辑"></p>
+<p><img src="/LoongsonGuide/images/uefi/8.png" alt="GRUB编辑"></p>
 <p>可以看到, 界面最下面仍然有一些文字, 告诉我们按下<code>Ctrl-X</code>组合键或者<code>F10</code>可以直接启动, 按下<code>Ctrl-c</code>或<code>F2</code>进入到<code>GRUB</code>命令行, 按下<code>ESC</code>可以退回上一步.</p>
 <h3 id="2-手动找grub-cfg"><a href="#2-手动找grub-cfg" class="headerlink" title="2. 手动找grub.cfg"></a>2. 手动找grub.cfg</h3><p>当我们在<code>UEFI</code>下执行<code>GRUB</code>的<code>efi</code>文件后, 加入<code>grub.cfg</code>的路径有问题, 则需要我们手动找到<code>grub.cfg</code>并且加载:</p>
-<p><img src="/images/uefi/9.png" alt="GRUB命令行操作"></p>
+<p><img src="/LoongsonGuide/images/uefi/9.png" alt="GRUB命令行操作"></p>
 <p>逐个说明上述命令: 首先<code>ls</code>命令能够看到当前能够识别的设别, 其中<code>hd0</code>表示一块硬盘(Hard Disk0), 如果有多个硬盘将以<code>hdx</code>的形式显示. </p>
 <p>但是<code>hd0</code>并不具有文件系统, <code>(hd0,msdos2)</code>这种形式才表示有文件系统, <code>msdos</code>指MBR的分区格式, <code>msdos2</code>也就表示<code>MBR</code>硬盘上第二个分区.</p>
 <p>然后逐级用<code>ls</code>命令找到<code>grub.cfg</code>的路径:<code>(hd0,msdos2)/boot/grub/grub.cfg</code>.</p>
@@ -198,13 +198,13 @@
 <p><code>linux</code>命令后面加内核的路径, 以及内核启动参数</p>
 <p><code>initrd</code>命令后面加initrd的路径即可.</p>
 <p>然后执行boot即可启动. 如下图:</p>
-<p><img src="/images/uefi/10.png" alt="grub命令启动内核"></p>
+<p><img src="/LoongsonGuide/images/uefi/10.png" alt="grub命令启动内核"></p>
 
             <div class="article-copyright">
                 
     <blockquote>
         <p>
-            版权声明：本文为「阿巴阿巴」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：http://example.com/2023/10/10/mywiki/uefi/
+            版权声明：本文为「阿巴阿巴」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：http://aydenmeng.github.io/LoongsonGuide/2023/10/10/mywiki/uefi/
         </p>
     </blockquote>
 
@@ -232,7 +232,7 @@
     </div>
 </footer>
 
-<script src="/js/custom.js"></script>
+<script src="/LoongsonGuide/js/custom.js"></script>
 
 
     <script>onload_content();</script>
