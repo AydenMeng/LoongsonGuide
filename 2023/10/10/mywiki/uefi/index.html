@@ -1,152 +1,127 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    
-    <title>我们需要做些什么才能进内核? | Hexo</title>
-    
-    
-        <meta property="og:site_name" content="Hexo">
-    
-    
-        <meta property="article:author" content="John Doe">
-    
-    
-        <link rel="icon" href="/img/favicon.ico">
-    
-    
-<link rel="stylesheet" href="/css/minireset.min.css">
+<html lang="en">
 
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="John Doe" />
+  <meta name="description" content="" />
+  
+  
+  <title>
     
-<link rel="stylesheet" href="/css/all.min.css">
+      我们需要做些什么才能进内核? 
+      
+      
+    
+  </title>
 
-    
-<link rel="stylesheet" href="/css/csshake.min.css">
+  
+    <link rel="apple-touch-icon" href="/images/favicon.png">
+    <link rel="icon" href="/images/favicon.png">
+  
 
-    
-<link rel="stylesheet" href="/css/hljs/lioshi.css">
+  <!-- Raleway-Font -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Roboto:400,400italic,600|Roboto+Mono" rel="stylesheet">
 
-    
-<link rel="stylesheet" href="/css/jquery.fancybox.min.css">
+  <!-- hexo site css -->
+  
+<link rel="stylesheet" href="/css/base.css">
+<link rel="stylesheet" href="/css/common.css">
+<link rel="stylesheet" href="/iconfont/iconfont.css">
 
-    
-<link rel="stylesheet" href="/styl/main.css">
 
-    
-<script src="/js/jquery.min.js"></script>
+  
 
+  
     
-<script src="/js/highlight.min.js"></script>
+<link rel="stylesheet" href="/css/post.css">
 
-    
-<script src="/js/jquery.fancybox.min.js"></script>
+  
 
-    
-<script src="/js/clipboard.min.js"></script>
+  <!-- jquery3.3.1 -->
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
 
-    
+  <!-- fancybox -->
+  <link href="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.css" rel="stylesheet">
+  <script async src="https://cdn.bootcss.com/fancybox/3.5.2/jquery.fancybox.min.js"></script>
+  
+<script src="/js/fancybox.js"></script>
+
+
 <meta name="generator" content="Hexo 6.3.0"></head>
-<body>
-    <header>
-  <div class="outer">
-    <div class="inner">
-      <h1 class="logo-wrap">
-        <a>LoongsonWiki<b><sup>mxd</sup></b></a>
-      </h1>
-    </div>
-    <div class="inner">
-      <nav class="main-nav">
-        
-          
-            <a href="/">首页</a>
-          
-        
-          
-            <a href="/archives">归档</a>
-          
-        
-          
-            <a href="/categories">分类</a>
-          
-        
-          
-            <a href="/tags">标签</a>
-          
-        
-          
-            <a href="/friends">友链</a>
-          
-        
-          
-            <div class="dropdown">
-              <a class="dropbtn">相关链接</a>
-              <div class="dropdown-content">
-                
-                  <a href="/2020/07/16/3a6087ce/">文章</a>
-                
-                  <a target="_blank" rel="noopener" href="https://www.baidu.com">百度一下你就知道</a>
-                
-              </div>
-            </div>
-          
-        
-          
-            <a href="/about">关于</a>
-          
-        
-      </nav>
-    </div>
-  </div>
-</header>
 
-    <div class="content">
-        <section class="outer">
-    <article>
-        <div class="article-title">
-    <h2>
-        <a href="/2023/10/10/mywiki/uefi/" class="shake shake-little" title="我们需要做些什么才能进内核?">
-            
-            我们需要做些什么才能进内核?
-        </a>
-    </h2>
-    <div class="meta_box">
-    
-        
-        
-            
-        
-            
-        
-            
-        
-        
-        <div class="meta meta_auth">
-            <img src="/img/default.png" alt="head" />
-            <p>Ayden Meng</p>
-        </div>
-    
-        
-        
-        <div class="meta meta_date">
-            <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-            <p>发布于：2023年10月10日</p>
-        </div>
-    
-        <div class="meta meta_update">
-            <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-            <p>更新于：2023年10月10日</p>
-        </div>
-    </div>
-    
 
+  <body>
+    <div id="app">
+      <div class="header">
+  <a href="/">LEEDOM</a>
 </div>
 
-        <hr>
-        <div class="article-entry">
-            
-            
-            
-            <h2 id="UEFI须知"><a href="#UEFI须知" class="headerlink" title="UEFI须知"></a>UEFI须知</h2><h3 id="1-进入UEFI-setup界面"><a href="#1-进入UEFI-setup界面" class="headerlink" title="1. 进入UEFI setup界面"></a>1. 进入UEFI setup界面</h3><p>在串口或者显示界面下显示<code>BDS</code>字样的时候(如下图), 稍微按按上下键即可进入<code>Setup</code>界面<br><img src="/images/uefi/1.png" alt="UEFI Booting"></p>
+
+      <p class="links">
+  
+    <a title="archives" target="" href="/archives/">
+      <i class="iconfont icon-bookmark"></i>
+    </a>
+  
+    <a title="github" target="_blank" href="https://github.com/leedom92/hexo-theme-leedom">
+      <i class="iconfont icon-github"></i>
+    </a>
+  
+    <a title="email" target="" href="">
+      <i class="iconfont icon-envelope"></i>
+    </a>
+  
+    <a title="facebook" target="" href="">
+      <i class="iconfont icon-facebooksquare"></i>
+    </a>
+  
+    <a title="twitter" target="" href="">
+      <i class="iconfont icon-twitter"></i>
+    </a>
+  
+    <a title="wechat" target="" href="">
+      <i class="iconfont icon-wechat"></i>
+    </a>
+  
+    <a title="weibo" target="" href="">
+      <i class="iconfont icon-weibo"></i>
+    </a>
+  
+    <a title="rss" target="_blank" href="/atom.xml">
+      <i class="iconfont icon-rss"></i>
+    </a>
+  
+</p>
+
+
+      <div class="main">
+        <!-- 文章详情页，展示文章具体内容，url形式：https://yoursite/文章标题/ -->
+<!-- 同时为「标签tag」，「朋友friend」，「分类categories」，「关于about」页面的承载页面，具体展示取决于page.type -->
+
+<!-- LaTex Display -->
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+</script>
+<script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']]
+    }
+  };
+</script>
+
+<div class="post">
+  <h3 class="date">
+    Oct 10, 2023
+  </h3>
+  <h1>
+    我们需要做些什么才能进内核?
+  </h1>
+  <div class="content markdown-body">
+    <h2 id="UEFI须知"><a href="#UEFI须知" class="headerlink" title="UEFI须知"></a>UEFI须知</h2><h3 id="1-进入UEFI-setup界面"><a href="#1-进入UEFI-setup界面" class="headerlink" title="1. 进入UEFI setup界面"></a>1. 进入UEFI setup界面</h3><p>在串口或者显示界面下显示<code>BDS</code>字样的时候(如下图), 稍微按按上下键即可进入<code>Setup</code>界面<br><img src="/images/uefi/1.png" alt="UEFI Booting"></p>
 <h3 id="2-Setup界面"><a href="#2-Setup界面" class="headerlink" title="2. Setup界面"></a>2. Setup界面</h3><p>无论是<code>Intel</code>还是<code>loongson</code>, <code>BIOS</code>下都有设置的接口, <code>PMON</code>也有, 无非是显示样式差异, 原理相通. <code>Loongson</code>的<code>UEFI</code>界面如下图</p>
 <p>不同的条目, 用于设置不同的功能. 其中普通用户通常只需要进入<code>BootManager</code>界面选择相应的启动目标即可.<br><img src="/images/uefi/2.png" alt="Setup"></p>
 <h3 id="3-BootManager界面"><a href="#3-BootManager界面" class="headerlink" title="3. BootManager界面"></a>3. BootManager界面</h3><p>在下图区域<code>1</code>中为条目名称, 区域<code>2</code>中为<code>UEFI</code>下解析的路径名(有点专业,不用理解), 总之, 左边看不懂时就看右边, 找相关的关键字, 比如下图, 左侧是设备名, 不太能看出是什么设备, 右侧则有<code>Sata</code>字样可以识别.<br><img src="/images/uefi/3.png" alt="BootManager"></p>
@@ -200,42 +175,242 @@
 <p>然后执行boot即可启动. 如下图:</p>
 <p><img src="/images/uefi/10.png" alt="grub命令启动内核"></p>
 
-            <div class="article-copyright">
-                
-    <blockquote>
-        <p>
-            版权声明：本文为「阿巴阿巴」的原创文章，博客内容遵循 署名-非商业性使用-相同方式共享 协议。<br>本文永久链接是：http://example.com/2023/10/10/mywiki/uefi/
-        </p>
-    </blockquote>
-
-
-            </div>
-        </div>
-    </article>
+  </div>
+  
     
-
-    <section id="toc-div" >
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#UEFI%E9%A1%BB%E7%9F%A5"><span class="toc-text">UEFI须知</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%BF%9B%E5%85%A5UEFI-setup%E7%95%8C%E9%9D%A2"><span class="toc-text">1. 进入UEFI setup界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Setup%E7%95%8C%E9%9D%A2"><span class="toc-text">2. Setup界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-BootManager%E7%95%8C%E9%9D%A2"><span class="toc-text">3. BootManager界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Shell%E4%B8%8B%E6%93%8D%E4%BD%9C"><span class="toc-text">4. Shell下操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-%E6%98%BE%E7%A4%BA%E5%90%AF%E5%8A%A8%E8%AE%BE%E5%A4%87"><span class="toc-text">4.1 显示启动设备</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-%E8%BF%9B%E5%85%A5%E8%AE%BE%E5%A4%87%E5%8F%8A%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6"><span class="toc-text">4.2 进入设备及查看文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-3-UEFI%E4%B8%8B%E7%9A%84%E5%85%B6%E4%BB%96%E6%93%8D%E4%BD%9C"><span class="toc-text">4.3 UEFI下的其他操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-4-UEFI%E4%B8%8B%E7%9A%84%E4%B8%80%E4%BA%9BShell%E5%91%BD%E4%BB%A4"><span class="toc-text">4.4 UEFI下的一些Shell命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-5-UEFI%E4%B8%8B%E6%9B%B4%E6%96%B0%E5%9B%BA%E4%BB%B6%E6%96%B9%E6%B3%95"><span class="toc-text">4.5 UEFI下更新固件方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GRUB"><span class="toc-text">GRUB</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GRUB%E7%95%8C%E9%9D%A2"><span class="toc-text">GRUB界面</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%BC%96%E8%BE%91GRUB%E9%80%89%E9%A1%B9"><span class="toc-text">1. 编辑GRUB选项</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%89%8B%E5%8A%A8%E6%89%BEgrub-cfg"><span class="toc-text">2. 手动找grub.cfg</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%B2%A1%E6%9C%89grub-cfg%E6%80%8E%E4%B9%88%E5%8A%9E"><span class="toc-text">3. 没有grub.cfg怎么办?</span></a></li></ol></li></ol>
-    </section>
-    <section id="gohome" style="display: none;"><a><i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i></a></section>
-
-
-</section>
+      <a id="older" class="blog-nav" href="/2023/10/10/mywiki/Readme/">OLDER&nbsp;&gt;</a>
+      
+        
+          <a id="newer" class="blog-nav" href="/2023/10/10/qemu/">&lt;&nbsp;NEWER</a>
+          
+            
+</div>
+        <div class="footer">
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/leedom92/hexo-theme-leedom">Copyright © Leedom 2021</a>
+        
     </div>
-    <footer>
-    <div class="outer">
-        <div class="inner">
-            Powered by <a href="https://github.com/hdxw/hexo-theme-prowiki" target="_blank">ProWiki</a>
-            &copy;2023 Ayden Meng<br>
-            <a target="_blank" rel="noopener" href="http://beian.miit.gov.cn/">冀ICP备688047号</a>
+  
+    <div class="footer-more">
+      
+        <a target="_blank" rel="noopener" href="https://github.com/leedom92/hexo-theme-leedom">Theme by Leedom | Powered by Hexo</a>
+        
+    </div>
+  
+</div>
+
+      </div>
+
+      <div class="back-to-top hidden">
+  <a href="javascript: void(0)">
+    <i class="iconfont icon-chevronup"></i>
+  </a>
+</div>
+
+
+<script src="/js/backtotop.js"></script>
+
+
+
+      
+  <div class="search-icon" id="search-icon">
+    <a href="javascript: void(0)">
+      <i class="iconfont icon-search"></i>
+    </a>
+  </div>
+
+  <div class="search-overlay hidden">
+    <div class="search-content" tabindex="0">
+      <div class="search-box">
+        <div class="search-title">
+          <!-- <span class="search-icon-input">
+            <a href="javascript: void(0)">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </span> -->
+          
+            <input type="text" class="search-input" id="search-input" placeholder="$ grep...">
+          
+          <span class="search-close-icon" id="search-close-icon">
+            <a href="javascript: void(0)">
+              <i class="iconfont icon-close"></i>
+            </a>
+          </span>
         </div>
+        <div class="search-result" id="search-result"></div>
+      </div>
     </div>
-</footer>
+  </div>
 
-<script src="/js/custom.js"></script>
+  <script type="text/javascript">
+    var inputArea = document.querySelector("#search-input")
+    var searchOverlayArea = document.querySelector(".search-overlay")
+
+    // inputArea.onclick = function() {
+    //   getSearchFile()
+    //   this.onclick = null
+    // }
+
+    inputArea.onkeydown = function() {
+      if(event.keyCode == 13)
+        return false
+    }
+
+    function openOrHideSearchContent() {
+      let isHidden = searchOverlayArea.classList.contains('hidden')
+      if (isHidden) {
+        searchOverlayArea.classList.remove('hidden')
+        document.body.classList.add('hidden')
+        inputArea.focus()
+        getSearchFile()
+      } else {
+        searchOverlayArea.classList.add('hidden')
+        document.body.classList.remove('hidden')
+      }
+    }
+
+    function blurSearchContent(e) {
+      if (e.target === searchOverlayArea) {
+        openOrHideSearchContent()
+      }
+    }
+
+    document.querySelector("#search-icon").addEventListener("click", openOrHideSearchContent, false)
+    document.querySelector("#search-close-icon").addEventListener("click", openOrHideSearchContent, false)
+    searchOverlayArea.addEventListener("click", blurSearchContent, false)
+
+    var searchFunc = function (path, search_id, content_id) {
+      'use strict';
+      var $input = document.getElementById(search_id);
+      var $resultContent = document.getElementById(content_id);
+      $resultContent.innerHTML = "<ul><span class='local-search-empty'><span></ul>";
+      // $resultContent.innerHTML = "<ul><span class='local-search-empty'>First search, index file loading, please wait...<span></ul>";
+      $.ajax({
+        // 0x01. load xml file
+        url: path,
+        dataType: "xml",
+        success: function (xmlResponse) {
+          // 0x02. parse xml file
+          var datas = $("entry", xmlResponse).map(function () {
+            return {
+              title: $("title", this).text(),
+              content: $("content", this).text(),
+              url: $("url", this).text()
+            };
+          }).get();
+          $resultContent.innerHTML = "";
+
+          $input.addEventListener('input', function () {
+            // 0x03. parse query to keywords list
+            var str = '<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length <= 0) {
+              return;
+            }
+            // 0x04. perform local searching
+            datas.forEach(function (data) {
+              var isMatch = true;
+              var content_index = [];
+              if (!data.title || data.title.trim() === '') {
+                data.title = "Untitled";
+              }
+              var orig_data_title = data.title.trim();
+              var data_title = orig_data_title.toLowerCase();
+              var orig_data_content = data.content.trim().replace(/<[^>]+>/g, "");
+              var data_content = orig_data_content.toLowerCase();
+              var data_url = data.url;
+              var index_title = -1;
+              var index_content = -1;
+              var first_occur = -1;
+              // only match artiles with not empty contents
+              if (data_content !== '') {
+                keywords.forEach(function (keyword, i) {
+                  index_title = data_title.indexOf(keyword);
+                  index_content = data_content.indexOf(keyword);
+
+                  if (index_title < 0 && index_content < 0) {
+                    isMatch = false;
+                  } else {
+                    if (index_content < 0) {
+                      index_content = 0;
+                    }
+                    if (i == 0) {
+                      first_occur = index_content;
+                    }
+                    // content_index.push({index_content:index_content, keyword_len:keyword_len});
+                  }
+                });
+              } else {
+                isMatch = false;
+              }
+              // 0x05. show search results
+              if (isMatch) {
+                str += "<li><a href='" + data_url + "' class='search-result-title'><h2>" + orig_data_title + "</h2></a>";
+                var content = orig_data_content;
+                if (first_occur >= 0) {
+                  // cut out 100 characters
+                  var start = first_occur - 20;
+                  var end = first_occur + 80;
+
+                  if (start < 0) {
+                    start = 0;
+                  }
+
+                  if (start == 0) {
+                    end = 100;
+                  }
+
+                  if (end > content.length) {
+                    end = content.length;
+                  }
+
+                  var match_content = content.substr(start, end);
+
+                  // highlight all keywords
+                  keywords.forEach(function (keyword) {
+                    var regS = new RegExp(keyword, "gi");
+                    match_content = match_content.replace(regS, "<span class=\"search-keyword\">" + keyword + "</span>");
+                  });
+
+                  str += "<h3 class=\"search-result-abstract\">" + match_content + "...</h3>"
+                }
+                str += "<hr></li>";
+              }
+            });
+            str += "</ul>";
+            if (str.indexOf('<li>') === -1) {
+              return $resultContent.innerHTML = "<ul><span class='local-search-empty'>No result<span></ul>";
+            }
+            $resultContent.innerHTML = str;
+          });
+        },
+        error: function(xhr, status, error) {
+          $resultContent.innerHTML = ""
+          if (xhr.status === 404) {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The search.xml file was not found, please refer to：<a href='https://github.com/leedom92/hexo-theme-leedom#configuration' target='_black'>configuration</a><span></ul>";
+          } else {
+            $resultContent.innerHTML = "<ul><span class='local-search-empty'>The request failed, Try to refresh the page or try again later.<span></ul>";
+          }
+        }
+      });
+      $(document).on('click', '#search-close-icon', function() {
+        $('#search-input').val('');
+        $('#search-result').html('');
+      });
+    }
+
+    var getSearchFile = function() {
+        var path = "/search.xml";
+        searchFunc(path, 'search-input', 'search-result');
+    }
+  </script>
 
 
-    <script>onload_content();</script>
 
-</body>
+
+    </div>
+  </body>
 </html>
