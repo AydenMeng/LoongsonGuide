@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>我们需要做些什么才能进内核?</title>
+      <link href="/LoongsonGuide/2023/10/10/mywiki/uefi/"/>
+      <url>/LoongsonGuide/2023/10/10/mywiki/uefi/</url>
+      
+        <content type="html"><![CDATA[<h2 id="UEFI须知"><a href="#UEFI须知" class="headerlink" title="UEFI须知"></a>UEFI须知</h2><h3 id="1-进入UEFI-setup界面"><a href="#1-进入UEFI-setup界面" class="headerlink" title="1. 进入UEFI setup界面"></a>1. 进入UEFI setup界面</h3><p>在串口或者显示界面下显示<code>BDS</code>字样的时候(如下图), 稍微按按上下键即可进入<code>Setup</code>界面<br><img src="/LoongsonGuide/images/uefi/1.png" alt="UEFI Booting"></p><h3 id="2-Setup界面"><a href="#2-Setup界面" class="headerlink" title="2. Setup界面"></a>2. Setup界面</h3><p>无论是<code>Intel</code>还是<code>loongson</code>, <code>BIOS</code>下都有设置的接口, <code>PMON</code>也有, 无非是显示样式差异, 原理相通. <code>Loongson</code>的<code>UEFI</code>界面如下图</p><p>不同的条目, 用于设置不同的功能. 其中普通用户通常只需要进入<code>BootManager</code>界面选择相应的启动目标即可.<br><img src="/LoongsonGuide/images/uefi/2.png" alt="Setup"></p><h3 id="3-BootManager界面"><a href="#3-BootManager界面" class="headerlink" title="3. BootManager界面"></a>3. BootManager界面</h3><p>在下图区域<code>1</code>中为条目名称, 区域<code>2</code>中为<code>UEFI</code>下解析的路径名(有点专业,不用理解), 总之, 左边看不懂时就看右边, 找相关的关键字, 比如下图, 左侧是设备名, 不太能看出是什么设备, 右侧则有<code>Sata</code>字样可以识别.<br><img src="/LoongsonGuide/images/uefi/3.png" alt="BootManager"></p><h3 id="4-Shell下操作"><a href="#4-Shell下操作" class="headerlink" title="4. Shell下操作"></a>4. Shell下操作</h3><p>通常, 正常情况下, 系统直接启动, 用户无法感知上述界面的存在, 但当出现一些问题时, 我们可能需要进入<code>Shell</code>下进行操作, 如上图中的第二个条目, 选中后回车进入下图界面:<br><img src="/LoongsonGuide/images/uefi/4.png" alt="Shell"></p><h4 id="4-1-显示启动设备"><a href="#4-1-显示启动设备" class="headerlink" title="4.1 显示启动设备"></a>4.1 显示启动设备</h4><p>正常情况下， 进入<code>Shell</code>后仍然会提示启动相关的设备, 如上图, 倘若由于操作过多, 或者显示<code>bug</code>等, 我们还想再次看到相关的显示, 则需要通过<code>map</code>命令再次显示，如下图：</p><p><img src="/LoongsonGuide/images/uefi/5.png" alt="map命令"></p><p>可以看到, 其实和默认进入<code>Shell</code>的打印是一样的, 不过为了防止打印被冲刷掉, 还是要会一下.</p><h4 id="4-2-进入设备及查看文件"><a href="#4-2-进入设备及查看文件" class="headerlink" title="4.2 进入设备及查看文件"></a>4.2 进入设备及查看文件</h4><p>看上图, 图中黄色字体, <code>FS0:</code> , <code>BLK0:</code>等, 可以理解为不同设备的重命名, 其中<code>FS</code>开头的标识表示该设备的文件系统可以识别, <code>BLK</code>开头的表示表示该设备不存在文件系统, 或者文件系统不可识别. 总之对我们有意义的就只有<code>FS</code>开头的标识.</p><p>只有含有文件系统的设备我们才能访问, 所以<code>UEFI</code>下需要访问的<code>GRUB</code>, 内核等<code>EFI</code>文件一定是放在<code>UEFI</code>下能够识别的文件系统中的. 也就是<code>FS</code>开头的设备.</p><p>如何访问文件系统中的文件呢, 先看下图:</p><p><img src="/LoongsonGuide/images/uefi/6.png" alt="文件操作"></p><p>进入设备时比较特殊, 输入<code>FS0:</code>即可,不能是<code>cd FS0:</code>, 也不能不加后面的冒号.</p><p>进入设备之后就和linux的操作很类似了, 使用<code>cd</code>, <code>ls</code>即可.</p><p>然后<code>ls</code>看到的緑色显示的文件, 也就是UEFI下的可执行文件–EFI文件. 运行时也无需像linux那样在前面加路径才能执行, UEFI下直接输入文件名即可.</p><p>哦, 值得一提, UEFI下可以通过<code>Tab</code>键实现文件名补全.</p><h4 id="4-3-UEFI下的其他操作"><a href="#4-3-UEFI下的其他操作" class="headerlink" title="4.3 UEFI下的其他操作"></a>4.3 UEFI下的其他操作</h4><p>如第一节的内容, <code>UEFI</code>下的界面下通常会有很多选项, 其中用户比较关心的选项大概有:</p><ol><li>快速启动: 忽略部分设备初始化, 启动速度加快, 比如x86部分机器需要关闭此选项才能更改启动顺序, 选择系统安装盘.</li><li>安全启动: 开启安全校验, 部分外插设备未经过校验可能无法识别, 所以x86装机时可能也需要关闭此项, 防止U盘无法识别.</li><li>传统模式: 通常是用于兼容很久的系统启动. 比如龙芯的机器开启传统模式可以安装旧世界系统, 关闭则安装新世界系统, x86下可能叫CSM…, 开启则可以引导MBR分区的硬盘, 关闭则引导GPT格式硬盘.</li><li>高级选项:一些高级的功能开关, 普通用户可能不需要使用, 比如上述传统模式, 龙芯的机器将其放在了高级选项中, 英文是LegacyMode, (看不懂这种英文的同学自我PUA一下). 其他如有需求请在工程师指导下使用.</li></ol><h4 id="4-4-UEFI下的一些Shell命令"><a href="#4-4-UEFI下的一些Shell命令" class="headerlink" title="4.4 UEFI下的一些Shell命令"></a>4.4 UEFI下的一些Shell命令</h4><p>比如<code>pci</code>命令, 具体可以通过<code>pci -?</code>查看具体使用方法, 这里不详细演示.</p><p>常用的命令有:<code>cd</code>, <code>ls</code>, <code>map</code>, <code>pci</code>, <code>mm</code>, <code>dmem</code>, <code>ifconfig</code>, <code>edit</code>, <code>vers</code>等.</p><h4 id="4-5-UEFI下更新固件方法"><a href="#4-5-UEFI下更新固件方法" class="headerlink" title="4.5 UEFI下更新固件方法"></a>4.5 UEFI下更新固件方法</h4><p>还有<code>spi</code>命令不得不单独强调, 一个产品往往需要保持更新才能更好的满足用户的需求. 固件是尤其重要的一点.</p><p>当我们需要更新固件(UEFI和PMON都是固件)时, 在<code>Shell</code>下找到文件后, 通过<code>spi -u filename</code>的命令, 即可完成固件更新.</p><p>当然图形界面下也有相关接口, 可以自己理解一下英文再操作.</p><h2 id="GRUB"><a href="#GRUB" class="headerlink" title="GRUB"></a>GRUB</h2><h3 id="GRUB界面"><a href="#GRUB界面" class="headerlink" title="GRUB界面"></a>GRUB界面</h3><p><img src="/LoongsonGuide/images/uefi/7.png" alt="GRUB主界面"></p><p>如图, GRUB界面下列出了几个选项, 其中第一项<code>vm.mxd</code>是我自己加的内核, 第二项<code>Loongnix GNU/Linux</code>是系统自带内核, 第三项<code>Advanced options for Loongnix GNU/Linux</code>是高级选项, 通常包含一些恢复模式的选项, 第四项是<code>System Setup</code>–系统设置, 其实就是进入<code>UEFI Setup</code>界面.</p><p>然后在界面的最下方:</p><blockquote><p>Use the ^ and v keys to select which entry is highlighted.<br>Press enter to boot the selected OS, <code>e</code> to edit the commands<br>before booting or <code>c</code> for a command-line.                    </p></blockquote><p>翻译一下:</p><blockquote><p>通过按上下键选择选项, 按执行进入选项, 按<code>e</code>去编辑选项, 按<code>c</code>进入<code>GRUB</code>的命令行.</p></blockquote><h3 id="1-编辑GRUB选项"><a href="#1-编辑GRUB选项" class="headerlink" title="1. 编辑GRUB选项"></a>1. 编辑GRUB选项</h3><p>通常我们通过<code>UEFI</code>执行<code>GRUB</code>的<code>efi</code>文件即可进入<code>GRUB</code>界面, 然后回车便可以启动内核, 但是倘若内核无法正常启动, 我们需要加串口调试, 就需要我们按<code>e</code>去编辑选项, 比如增加串口或者进入单用户模式等.</p><p>按<code>e</code>后进入下图, 我们可以将光标通过上下左右按键, 移动至<code>linux</code>开头的那一行, 并在行末加入想要的参数比如串口<code>console=ttyS0,115200 earlycon=uart,mmio,0x1fe001e0</code>.</p><p><img src="/LoongsonGuide/images/uefi/8.png" alt="GRUB编辑"></p><p>可以看到, 界面最下面仍然有一些文字, 告诉我们按下<code>Ctrl-X</code>组合键或者<code>F10</code>可以直接启动, 按下<code>Ctrl-c</code>或<code>F2</code>进入到<code>GRUB</code>命令行, 按下<code>ESC</code>可以退回上一步.</p><h3 id="2-手动找grub-cfg"><a href="#2-手动找grub-cfg" class="headerlink" title="2. 手动找grub.cfg"></a>2. 手动找grub.cfg</h3><p>当我们在<code>UEFI</code>下执行<code>GRUB</code>的<code>efi</code>文件后, 加入<code>grub.cfg</code>的路径有问题, 则需要我们手动找到<code>grub.cfg</code>并且加载:</p><p><img src="/LoongsonGuide/images/uefi/9.png" alt="GRUB命令行操作"></p><p>逐个说明上述命令: 首先<code>ls</code>命令能够看到当前能够识别的设别, 其中<code>hd0</code>表示一块硬盘(Hard Disk0), 如果有多个硬盘将以<code>hdx</code>的形式显示. </p><p>但是<code>hd0</code>并不具有文件系统, <code>(hd0,msdos2)</code>这种形式才表示有文件系统, <code>msdos</code>指MBR的分区格式, <code>msdos2</code>也就表示<code>MBR</code>硬盘上第二个分区.</p><p>然后逐级用<code>ls</code>命令找到<code>grub.cfg</code>的路径:<code>(hd0,msdos2)/boot/grub/grub.cfg</code>.</p><p>最后通过<code>configfile</code>命令, 解析<code>grub.cfg</code>文件, 即可重新回到GRUB的主界面.</p><h3 id="3-没有grub-cfg怎么办"><a href="#3-没有grub-cfg怎么办" class="headerlink" title="3. 没有grub.cfg怎么办?"></a>3. 没有grub.cfg怎么办?</h3><p>有时候, 我们会遇到有<code>grub</code>, 但是没有<code>grub.cfg</code>的情况, 这时, 我们可以稍微背下来两条命令, 这两条也就是<code>grub.cfg</code>中加载内核和加载<code>initrd</code>的命令: <code>linux</code>命令和<code>initrd</code>命令</p><p><code>linux</code>命令后面加内核的路径, 以及内核启动参数</p><p><code>initrd</code>命令后面加initrd的路径即可.</p><p>然后执行boot即可启动. 如下图:</p><p><img src="/LoongsonGuide/images/uefi/10.png" alt="grub命令启动内核"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Kernel Below </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>PMON的使用方法</title>
+      <link href="/LoongsonGuide/2023/10/10/mywiki/pmon/"/>
+      <url>/LoongsonGuide/2023/10/10/mywiki/pmon/</url>
+      
+        <content type="html"><![CDATA[<h1 id="PMON的使用方法"><a href="#PMON的使用方法" class="headerlink" title="PMON的使用方法"></a>PMON的使用方法</h1><ol><li>查看设备</li></ol><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; devls</span><br><span class="line">syn0</span><br><span class="line">wd0</span><br></pre></td></tr></table></figure><p>sync0, igb0, em0 等字样,表示网络设备, 即网卡</p><p>wd0, nvme0, usb0, cd0等字样表示存储设备, 即硬盘, U盘等.</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Kernel Below </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/LoongsonGuide/2023/10/10/hello-world/"/>
+      <url>/LoongsonGuide/2023/10/10/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Others </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>我的Wiki知识库</title>
+      <link href="/LoongsonGuide/2023/10/10/mywiki/Readme/"/>
+      <url>/LoongsonGuide/2023/10/10/mywiki/Readme/</url>
+      
+        <content type="html"><![CDATA[<ol><li><a href="pmon.md">PMON的使用方法</a></li><li><a href="uefi.md">UEFI到内核启动中间的一些非常方法</a></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Others </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>How to use Qemu</title>
+      <link href="/LoongsonGuide/2023/10/10/mywiki/qemu/"/>
+      <url>/LoongsonGuide/2023/10/10/mywiki/qemu/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pacman -S qemu-system-loongarch64</span><br><span class="line">wget https://github.com/loongson/Firmware/raw/main/LoongArchVirtMachine/edk2-loongarch64-code.fd -O edk2-loongarch64-code.fd</span><br><span class="line">qemu-system-loongarch64 -m 4G -smp 1 --cpu la464 --machine virt -bios edk2-loongarch64-code.fd  --serial stdi</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Kernel Above </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>How to boot kernel with Qemu</title>
+      <link href="/LoongsonGuide/2023/10/10/mywiki/kernel/"/>
+      <url>/LoongsonGuide/2023/10/10/mywiki/kernel/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">pacman -S qemu-img</span><br><span class="line">qemu-system-loongarch64 \</span><br><span class="line">    -m 5G \</span><br><span class="line">    -cpu la464-loongarch-cpu \</span><br><span class="line">    -machine virt \</span><br><span class="line">    -smp 4 \</span><br><span class="line">    -bios edk2-loongarch64-code.fd \</span><br><span class="line">    -serial stdio \</span><br><span class="line">    -device virtio-gpu-pci \</span><br><span class="line">    -net nic -net user \</span><br><span class="line">    -device nec-usb-xhci,id=xhci,addr=0x1b \</span><br><span class="line">    -device usb-tablet,id=tablet,bus=xhci.0,port=1 \</span><br><span class="line">    -device usb-kbd,id=keyboard,bus=xhci.0,port=2 \</span><br><span class="line">    -hda /home/mxd/gitrepo/qemu-kernel-debug/Loongnix-20.5.mate.mini.loongarch64.cn.qcow2 \</span><br><span class="line">    -boot once=d</span><br><span class="line">    -vnc none</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Kernel Above </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>How to build gogs with loongarch machine</title>
+      <link href="/LoongsonGuide/2023/10/10/mywiki/gogs/"/>
+      <url>/LoongsonGuide/2023/10/10/mywiki/gogs/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">pacman -S mariadb</span><br><span class="line">mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql</span><br><span class="line">systemctl start mysql</span><br><span class="line">mariadb --initialize-insecure --user=mysql --datadir=&#x27;./data&#x27;</span><br><span class="line">mysql -u root</span><br><span class="line"></span><br><span class="line">[root@mxd gitrepo]# mysql -u root</span><br><span class="line">mysql: Deprecated program name. It will be removed in a future release, use &#x27;/usr/bin/mariadb&#x27; instead</span><br><span class="line">Welcome to the MariaDB monitor.  Commands end with ; or \g.</span><br><span class="line">Your MariaDB connection id is 8</span><br><span class="line">Server version: 11.0.2-MariaDB Arch Linux</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.</span><br><span class="line"></span><br><span class="line">Type &#x27;help;&#x27; or &#x27;\h&#x27; for help. Type &#x27;\c&#x27; to clear the current input statement.</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; create user &#x27;gogs&#x27;@&#x27;localhost&#x27; identified by &#x27;loongsonmxd&#x27;;</span><br><span class="line">Query OK, 0 rows affected (0.001 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; select user,host from mysql.user;</span><br><span class="line">+-------------+-----------+</span><br><span class="line">| User        | Host      |</span><br><span class="line">+-------------+-----------+</span><br><span class="line">| PUBLIC      |           |</span><br><span class="line">|             | localhost |</span><br><span class="line">| gogs        | localhost |</span><br><span class="line">| mariadb.sys | localhost |</span><br><span class="line">| mysql       | localhost |</span><br><span class="line">| root        | localhost |</span><br><span class="line">|             | mxd       |</span><br><span class="line">+-------------+-----------+</span><br><span class="line">7 rows in set (0.001 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; CREATE DATABASE gogs;</span><br><span class="line">Query OK, 1 row affected (0.000 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; show databases;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| gogs               |</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| sys                |</span><br><span class="line">| test               |</span><br><span class="line">+--------------------+</span><br><span class="line">6 rows in set (0.000 sec)</span><br><span class="line"></span><br><span class="line">MariaDB [(none)]&gt; grant all privileges on gogs.* to &#x27;gogs&#x27;@&#x27;%&#x27; identified by &#x27;loongsonmxd&#x27; with grant option;</span><br><span class="line">Query OK, 0 rows affected (0.001 sec)</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>build gogs:</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pacman -S go node npm</span><br><span class="line">git clone --depth 1 https://github.com/gogs/gogs.git gogs</span><br><span class="line">cd gogs</span><br><span class="line">go build -o gogs</span><br><span class="line">./gogs web</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Others </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>github &amp; hexo</title>
+      <link href="/LoongsonGuide/2023/10/10/mywiki/blog/"/>
+      <url>/LoongsonGuide/2023/10/10/mywiki/blog/</url>
+      
+        <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pacman -S nodejs npm git</span><br><span class="line">npm config set proxy=&quot;http://127.0.0.1:7890&quot;</span><br><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir loongsonwiki</span><br><span class="line">cd loongsonwiki</span><br><span class="line">hexo init</span><br><span class="line">git clone  https://github.com/hdxw/hexo-theme-prowiki.git themes/hexo-theme-prowiki</span><br><span class="line">git submodule add  https://github.com/hdxw/hexo-theme-prowiki.git themes/hexo-theme-prowiki</span><br><span class="line">vim _config.yml</span><br></pre></td></tr></table></figure><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">diff --git a/_config.yml b/_config.yml</span><br><span class="line">index 02b67a4..2391977 100644</span><br><span class="line">--- a/_config.yml</span><br><span class="line">+++ b/_config.yml</span><br><span class="line">@@ -97,7 +97,7 @@ ignore:</span><br><span class="line"> # Extensions</span><br><span class="line"> ## Plugins: https://hexo.io/plugins/</span><br><span class="line"> ## Themes: https://hexo.io/themes/</span><br><span class="line">-theme: landscape</span><br><span class="line">+theme: hexo-theme-prowiki</span><br><span class="line"></span><br><span class="line"> # Deployment</span><br><span class="line"> ## Docs: https://hexo.io/docs/one-command-deployment</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Others </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
