@@ -3,21 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>PMON的使用方法 | LoongsonGuide</title>
+  <title>How to boot kernel with Qemu | LoongsonGuide</title>
   <meta name="author" content="Ayden Meng">
   
-  <meta name="description" content="PMON的使用方法
-查看设备
-
-123PMON&amp;gt; devlssyn0wd0
-
-sync0, igb0, em0 等字样,表示网络设备, 即网卡
-wd0, nvme0, usb0, cd0等字样表示存储设备, 即硬盘, U盘等.">
+  <meta name="description" content="12345678910111213141516pacman -S qemu-imgqemu-system-loongarch64 \    -m 5G \    -cpu la464 \    -machine virt \    -smp 4 \    -bios edk2-loongarch64">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="PMON的使用方法"/>
+  <meta property="og:title" content="How to boot kernel with Qemu"/>
   <meta property="og:site_name" content="LoongsonGuide"/>
 
   
@@ -51,26 +45,29 @@ wd0, nvme0, usb0, cd0等字样表示存储设备, 即硬盘, U盘等.">
   <div class="container" id="container">
 	<div class="content">
 	  <div class="page-header">		
-  <h1><a class="brand" href="/LoongsonGuide/">LoongsonGuide</a><span class="split"></span><span class="title">PMON的使用方法</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2023-10-10</span></h1>
+  <h1><a class="brand" href="/LoongsonGuide/">LoongsonGuide</a><span class="split"></span><span class="title">How to boot kernel with Qemu</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2023-10-11</span></h1>
 </div>		
 
 <div class="row page">
   <!-- cols -->	
   
+  <div class="col-xs-12 col-sm-3 col-md-3 toc"> 
+	<!-- toc -->
+<script type="text/javascript">
+		jQuery(document).ready(function() {
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		});
+</script>
+  </div><!-- col-md-3 -->
+  
   
 
   
-	<div class="col-md-12">
-	  
+  <div class="col-xs-12 col-sm-9 col-md-9 note">
+	
 
 	  <!-- content -->
-	  <h1 id="PMON的使用方法"><a href="#PMON的使用方法" class="headerlink" title="PMON的使用方法"></a>PMON的使用方法</h1><ol>
-<li>查看设备</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; devls</span><br><span class="line">syn0</span><br><span class="line">wd0</span><br></pre></td></tr></table></figure>
-
-<p>sync0, igb0, em0 等字样,表示网络设备, 即网卡</p>
-<p>wd0, nvme0, usb0, cd0等字样表示存储设备, 即硬盘, U盘等.</p>
+	  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">pacman -S qemu-img</span><br><span class="line">qemu-system-loongarch64 \</span><br><span class="line">    -m 5G \</span><br><span class="line">    -cpu la464 \</span><br><span class="line">    -machine virt \</span><br><span class="line">    -smp 4 \</span><br><span class="line">    -bios edk2-loongarch64-code.fd \</span><br><span class="line">    -serial stdio \</span><br><span class="line">    -device virtio-gpu-pci \</span><br><span class="line">    -net nic -net user \</span><br><span class="line">    -device nec-usb-xhci,id=xhci,addr=0x1b \</span><br><span class="line">    -device usb-tablet,id=tablet,bus=xhci.0,port=1 \</span><br><span class="line">    -device usb-kbd,id=keyboard,bus=xhci.0,port=2 \</span><br><span class="line">    -hda /home/mxd/gitrepo/qemu-kernel-debug/Loongnix-20.5.mate.mini.loongarch64.cn.qcow2 \</span><br><span class="line">    -boot once=d</span><br><span class="line">    -vnc none</span><br></pre></td></tr></table></figure>
 	  
 
 	  <div>
@@ -84,19 +81,17 @@ wd0, nvme0, usb0, cd0等字样表示存储设备, 即硬盘, U盘等.">
 	
 	
 		
+	
+		
+	
+		
+	
+		
+			
 			
 		
 	
 		
-			
-			
-		
-	
-		
-	
-		
-	
-		
 	
 		
 	
@@ -106,7 +101,7 @@ wd0, nvme0, usb0, cd0等字样表示存储设备, 即硬盘, U盘等.">
 	
 	
 	
-		<li class="prev"><a href="/LoongsonGuide/2023/10/10/mywiki/uefi/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
 	
 	<li><a href="/LoongsonGuide/"><i class="fa fa-archive"></i>Home</a></li>
 	

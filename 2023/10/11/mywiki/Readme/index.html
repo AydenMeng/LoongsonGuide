@@ -3,15 +3,16 @@
 <head>
   <meta charset="utf-8">
   
-  <title>How to boot kernel with Qemu | LoongsonGuide</title>
+  <title>我的Wiki知识库 | LoongsonGuide</title>
   <meta name="author" content="Ayden Meng">
   
-  <meta name="description" content="12345678910111213141516pacman -S qemu-imgqemu-system-loongarch64 \    -m 5G \    -cpu la464-loongarch-cpu \    -machine virt \    -smp 4 \    -bios ed">
+  <meta name="description" content="PMON的使用方法
+UEFI到内核启动中间的一些非常方法">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="How to boot kernel with Qemu"/>
+  <meta property="og:title" content="我的Wiki知识库"/>
   <meta property="og:site_name" content="LoongsonGuide"/>
 
   
@@ -45,20 +46,32 @@
   <div class="container" id="container">
 	<div class="content">
 	  <div class="page-header">		
-  <h1><a class="brand" href="/LoongsonGuide/">LoongsonGuide</a><span class="split"></span><span class="title">How to boot kernel with Qemu</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2023-10-10</span></h1>
+  <h1><a class="brand" href="/LoongsonGuide/">LoongsonGuide</a><span class="split"></span><span class="title">我的Wiki知识库</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2023-10-11</span></h1>
 </div>		
 
 <div class="row page">
   <!-- cols -->	
   
+  <div class="col-xs-12 col-sm-3 col-md-3 toc"> 
+	<!-- toc -->
+<script type="text/javascript">
+		jQuery(document).ready(function() {
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		});
+</script>
+  </div><!-- col-md-3 -->
+  
   
 
   
-	<div class="col-md-12">
-	  
+  <div class="col-xs-12 col-sm-9 col-md-9 note">
+	
 
 	  <!-- content -->
-	  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">pacman -S qemu-img</span><br><span class="line">qemu-system-loongarch64 \</span><br><span class="line">    -m 5G \</span><br><span class="line">    -cpu la464-loongarch-cpu \</span><br><span class="line">    -machine virt \</span><br><span class="line">    -smp 4 \</span><br><span class="line">    -bios edk2-loongarch64-code.fd \</span><br><span class="line">    -serial stdio \</span><br><span class="line">    -device virtio-gpu-pci \</span><br><span class="line">    -net nic -net user \</span><br><span class="line">    -device nec-usb-xhci,id=xhci,addr=0x1b \</span><br><span class="line">    -device usb-tablet,id=tablet,bus=xhci.0,port=1 \</span><br><span class="line">    -device usb-kbd,id=keyboard,bus=xhci.0,port=2 \</span><br><span class="line">    -hda /home/mxd/gitrepo/qemu-kernel-debug/Loongnix-20.5.mate.mini.loongarch64.cn.qcow2 \</span><br><span class="line">    -boot once=d</span><br><span class="line">    -vnc none</span><br></pre></td></tr></table></figure>
+	  <ol>
+<li><a href="pmon.md">PMON的使用方法</a></li>
+<li><a href="uefi.md">UEFI到内核启动中间的一些非常方法</a></li>
+</ol>
 	  
 
 	  <div>
@@ -74,16 +87,6 @@
 		
 	
 		
-	
-		
-	
-		
-	
-		
-			
-		
-	
-		
 			
 			
 		
@@ -92,13 +95,23 @@
 	
 		
 	
+		
+	
+		
+	
+		
+	
+		
+			
+			
+			
 	
 	
-		<li class="prev"><a href="/LoongsonGuide/2023/10/10/mywiki/qemu/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
 	
 	<li><a href="/LoongsonGuide/"><i class="fa fa-archive"></i>Home</a></li>
 	
-		<li class="next disabled"><a>next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+		<li class="next"><a href="/LoongsonGuide/2023/10/10/hello-world/" class="alignright next">next<i class="fa fa-arrow-circle-o-right"></i></a></li>
 	
 </ul>
 </div>
