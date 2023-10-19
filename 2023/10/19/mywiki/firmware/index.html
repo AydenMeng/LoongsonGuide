@@ -84,6 +84,8 @@
 
 <p><img src="/LoongsonGuide/images/firmware/1.png" alt="UEFI Shell下烧写固件"></p>
 <h2 id="在系统下更新固件"><a href="#在系统下更新固件" class="headerlink" title="在系统下更新固件"></a>在系统下更新固件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">root@loongson-pc:/home/loongson# git clone https://github.com/MarsDoge/OsTools.git</span><br><span class="line">root@loongson-pc:/home/loongson# cd OsTools</span><br><span class="line">root@loongson-pc:/home/loongson# ./build.sh</span><br><span class="line">root@loongson-pc:/home/loongson/OsTools# ./OsTools spi -u -f uefi.mxd</span><br><span class="line">mmap addr start : 0xfff78bc1f0</span><br><span class="line">------------Read Buf Get Success!-----------</span><br><span class="line">Erase   :</span><br><span class="line">[========================================================================] 100%</span><br><span class="line">Program :</span><br><span class="line">[========================================================================] 100%</span><br><span class="line">--------------Release mem Map----------------</span><br><span class="line">root@loongson-pc:/home/loongson/OsTools# reboot</span><br></pre></td></tr></table></figure>
+
+<h2 id="在系统下备份当前固件"><a href="#在系统下备份当前固件" class="headerlink" title="在系统下备份当前固件"></a>在系统下备份当前固件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@loongson-pc:/home/loongson# git clone https://github.com/MarsDoge/OsTools.git</span><br><span class="line">root@loongson-pc:/home/loongson# cd OsTools</span><br><span class="line">root@loongson-pc:/home/loongson# ./build.sh</span><br><span class="line">root@loongson-pc:/home/loongson# ./OsTools spi -d -f backup.dump.fd</span><br><span class="line">mmap addr start : 0x7ffff07fc1f0</span><br><span class="line">--------------Release mem Map----------------</span><br><span class="line">root@loongson-pc:/home/loongson# ls backup.dump.fd</span><br><span class="line">backup.dump.fd</span><br></pre></td></tr></table></figure>
 	  
 
 	  <div>
@@ -97,22 +99,10 @@
 	
 	
 		
-	
-		
-			
-		
-	
-		
-	
-		
-	
-		
-	
-		
-	
-		
 			
 			
+		
+	
 		
 	
 		
@@ -121,13 +111,25 @@
 			
 		
 	
+		
+	
+		
+	
+		
+	
+		
+			
+		
+	
+		
 	
 	
-		<li class="prev"><a href="/LoongsonGuide/2023/10/19/mywiki/uefi/" class="alignleft prev"><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
+	
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
 	
 	<li><a href="/LoongsonGuide/"><i class="fa fa-archive"></i>Home</a></li>
 	
-		<li class="next"><a href="/LoongsonGuide/2023/10/19/mywiki/pmon/" class="alignright next">next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+		<li class="next"><a href="/LoongsonGuide/2023/10/19/mywiki/uefi/" class="alignright next">next<i class="fa fa-arrow-circle-o-right"></i></a></li>
 	
 </ul>
 </div>
