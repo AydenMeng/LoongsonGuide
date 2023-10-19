@@ -3,16 +3,15 @@
 <head>
   <meta charset="utf-8">
   
-  <title>我的Wiki知识库 | LoongsonGuide</title>
+  <title>Qemu使用 | LoongsonGuide</title>
   <meta name="author" content="Ayden Meng">
   
-  <meta name="description" content="PMON的使用方法
-UEFI到内核启动中间的一些非常方法">
+  <meta name="description" content="123pacman -S qemu-system-loongarch64wget https://github.com/loongson/Firmware/raw/main/LoongArchVirtMachine/edk2-loongarch64-code.fd -O edk2-loongarch">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <meta property="og:title" content="我的Wiki知识库"/>
+  <meta property="og:title" content="Qemu使用"/>
   <meta property="og:site_name" content="LoongsonGuide"/>
 
   
@@ -46,7 +45,7 @@ UEFI到内核启动中间的一些非常方法">
   <div class="container" id="container">
 	<div class="content">
 	  <div class="page-header">		
-  <h1><a class="brand" href="/LoongsonGuide/">LoongsonGuide</a><span class="split"></span><span class="title">我的Wiki知识库</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2023-10-11</span></h1>
+  <h1><a class="brand" href="/LoongsonGuide/">LoongsonGuide</a><span class="split"></span><span class="title">Qemu使用</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2023-10-19</span></h1>
 </div>		
 
 <div class="row page">
@@ -68,10 +67,8 @@ UEFI到内核启动中间的一些非常方法">
 	
 
 	  <!-- content -->
-	  <ol>
-<li><a href="pmon.md">PMON的使用方法</a></li>
-<li><a href="uefi.md">UEFI到内核启动中间的一些非常方法</a></li>
-</ol>
+	  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pacman -S qemu-system-loongarch64</span><br><span class="line">wget https://github.com/loongson/Firmware/raw/main/LoongArchVirtMachine/edk2-loongarch64-code.fd -O edk2-loongarch64-code.fd</span><br><span class="line">qemu-system-loongarch64 -m 4G -smp 1 --cpu la464 --machine virt -bios edk2-loongarch64-code.fd  --serial stdi</span><br></pre></td></tr></table></figure>
+
 	  
 
 	  <div>
@@ -89,31 +86,33 @@ UEFI到内核启动中间的一些非常方法">
 		
 	
 		
-	
-		
 			
 			
-		
-	
-		
-	
-		
-	
-		
-	
 		
 	
 		
 			
 			
 			
+		
+	
+		
+			
+		
+	
+		
+	
+		
+	
+		
+	
 	
 	
 		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
 	
 	<li><a href="/LoongsonGuide/"><i class="fa fa-archive"></i>Home</a></li>
 	
-		<li class="next"><a href="/LoongsonGuide/2023/10/10/hello-world/" class="alignright next">next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+		<li class="next"><a href="/LoongsonGuide/2023/10/19/mywiki/blog/" class="alignright next">next<i class="fa fa-arrow-circle-o-right"></i></a></li>
 	
 </ul>
 </div>
