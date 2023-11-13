@@ -1,0 +1,214 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>如何更新系统 | LoongsonGuide</title>
+  <meta name="author" content="Ayden Meng">
+  
+  <meta name="description" content="1 全系统更新:Debian系:
+1apt update &amp;amp;&amp;amp; apt upgrade
+
+Redhat系:
+1yum update
+
+Arch系:
+1pacman -Syu
+
+2. 单独更新内核2.1 更新自己编译的内核将内核放置/boot下即可(通常/boot是grub.cfg默认">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="如何更新系统"/>
+  <meta property="og:site_name" content="LoongsonGuide"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  
+    <link rel="alternative" href="/LoongsonGuide/atom.xml" title="LoongsonGuide" type="application/atom+xml">
+  
+  
+    <link href="/LoongsonGuide/img/favicon.png" rel="icon">
+  
+  
+  <link rel="stylesheet" href="/LoongsonGuide/css/bootstrap.min.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/LoongsonGuide/css/font-awesome.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/LoongsonGuide/css/style.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/LoongsonGuide/css/highlight.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/LoongsonGuide/css/google-fonts.css" media="screen" type="text/css">
+  <link rel="stylesheet" href="/LoongsonGuide/css/responsive.css" media="screen" type="text/css">  
+  <link rel="stylesheet" href="/LoongsonGuide/css/sidenav.css" media="screen" type="text/css">  
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+  <script src="/LoongsonGuide/js/jquery-2.0.3.min.js"></script>
+
+  <!-- analytics -->
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body id="body" data-spy="scroll" data-target=".toc">
+  <div class="container" id="container">
+	<div class="content">
+	  <div class="page-header">		
+  <h1><a class="brand" href="/LoongsonGuide/">LoongsonGuide</a><span class="split"></span><span class="title">如何更新系统</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2023-11-13</span></h1>
+</div>		
+
+<div class="row page">
+  <!-- cols -->	
+  
+  <div class="col-xs-12 col-sm-3 col-md-3 toc"> 
+	<!-- toc -->
+<script type="text/javascript">
+		jQuery(document).ready(function() {
+ 		   generateWikiTOC('.note', '.toc',  2 , 2 );
+		});
+</script>
+  </div><!-- col-md-3 -->
+  
+  
+
+  
+  <div class="col-xs-12 col-sm-9 col-md-9 note">
+	
+
+	  <!-- content -->
+	  <h2 id="1-全系统更新"><a href="#1-全系统更新" class="headerlink" title="1 全系统更新:"></a>1 全系统更新:</h2><p><code>Debian</code>系:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt update &amp;&amp; apt upgrade</span><br></pre></td></tr></table></figure>
+
+<p><code>Redhat</code>系:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum update</span><br></pre></td></tr></table></figure>
+
+<p><code>Arch</code>系:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -Syu</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-单独更新内核"><a href="#2-单独更新内核" class="headerlink" title="2. 单独更新内核"></a>2. 单独更新内核</h2><h3 id="2-1-更新自己编译的内核"><a href="#2-1-更新自己编译的内核" class="headerlink" title="2.1 更新自己编译的内核"></a>2.1 更新自己编译的内核</h3><p>将内核放置<code>/boot</code>下即可(通常<code>/boot</code>是<code>grub.cfg</code>默认指定的根目录)</p>
+<p>更新完记得更新<code>grub.cfg</code>, 见第四节.</p>
+<h3 id="2-2-更新软件源上的内核"><a href="#2-2-更新软件源上的内核" class="headerlink" title="2.2 更新软件源上的内核"></a>2.2 更新软件源上的内核</h3><p>以<code>Debian</code>系为例, 其余不做演示:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">root@loongson-pc:/home/loongson# apt-cache search linux-header</span><br><span class="line">aufs-dkms - DKMS files to build and install aufs</span><br><span class="line">linux-headers-4.19.0-17-common - Common header files for Linux 4.19</span><br><span class="line">linux-headers-4.19.0-17-loongson-3 - Linux kernel headers for 4.19 on loongson-3</span><br><span class="line">linux-headers-4.19.0-18-common - Common header files for Linux 4.19</span><br><span class="line">linux-headers-4.19.0-18-loongson-3 - Linux kernel headers for 4.19 on loongson-3</span><br><span class="line">linux-headers-4.19.0-19-common - Common header files for Linux 4.19</span><br><span class="line">linux-headers-4.19.0-19-loongson-3 - Linux kernel headers for 4.19 on loongson-3</span><br><span class="line">linux-headers-loongson-3 - Linux kernel headers for 4.19 on loongson-3 (meta-package)</span><br><span class="line">root@loongson-pc:/home/loongson#</span><br><span class="line">root@loongson-pc:/home/loongson# apt install linux-headers-4.19.0-19-loongson-3</span><br><span class="line">正在读取软件包列表... 完成正在分析软件包的依赖关系树       </span><br><span class="line">正在读取状态信息... 完成       </span><br><span class="line">......</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-单独更新initrd"><a href="#3-单独更新initrd" class="headerlink" title="3. 单独更新initrd"></a>3. 单独更新initrd</h2><h3 id="3-1-更新自己编译的modules并生成initrd"><a href="#3-1-更新自己编译的modules并生成initrd" class="headerlink" title="3.1 更新自己编译的modules并生成initrd"></a>3.1 更新自己编译的modules并生成initrd</h3><p>将从内核源码编译的模块文件拷贝至<code>/lib/modules/</code>, 比如<code>4.19.190+.tgz</code>是模块文件的压缩包:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@loongson-pc:/lib/modules# tar -zxf 4.19.190+.tgz -C /lib/modules/</span><br><span class="line">root@loongson-pc:/lib/modules# ls</span><br><span class="line">4.19.0-19-loongson-3  4.19.190+</span><br></pre></td></tr></table></figure>
+
+<p>在<code>/lib/modules/</code>下生成的<code>4.19.190+</code>文件夹即为新的模块文件目录, 然后手动生成<code>initrd</code>即可. (通常, 模块文件夹名与内核版本名称一致, 倘若不一致, 需要进入<code>/lib/modules/</code>目录, 相当于指定文件夹)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">root@loongson-pc:/lib/modules# cd /lib/modules/</span><br><span class="line">root@loongson-pc:/lib/modules# dracut --force --kver 4.19.190+</span><br><span class="line">dracut: Executing: /usr/bin/dracut --force --kver 4.19.190+</span><br><span class="line">Mode:                     real</span><br><span class="line">Method:                   sha256</span><br><span class="line">Files:                    1034</span><br><span class="line">Linked:                   188 files</span><br><span class="line">Compared:                 0 xattrs</span><br><span class="line">Compared:                 2322 files</span><br><span class="line">Saved:                    7.64 MiB</span><br><span class="line">Duration:                 0.088150 seconds</span><br><span class="line">dracut: *** Hardlinking files done ***</span><br><span class="line">dracut: *** Stripping files ***</span><br><span class="line">dracut: *** Stripping files done ***</span><br><span class="line">dracut: *** Generating early-microcode cpio image ***</span><br><span class="line">dracut: *** Store current command line parameters ***</span><br><span class="line">dracut: Stored kernel commandline:</span><br><span class="line">dracut:  resume=UUID=e7429117-dba5-4318-8d48-ab34b7919f6d</span><br><span class="line">dracut:  root=UUID=103a31fa-631b-4ec5-8295-0817394b36d6 rootfstype=xfs rootflags=rw,noatime,attr2,inode64,noquota</span><br><span class="line">dracut: *** Creating image file &#x27;/boot/initramfs-4.19.190+.img&#x27; ***</span><br><span class="line">dracut: *** Creating initramfs image file &#x27;/boot/initramfs-4.19.190+.img&#x27; done ***</span><br></pre></td></tr></table></figure>
+
+<p><code>/boot/initramfs-4.19.190+.img</code>即为生成的<code>initrd</code></p>
+<p><code>mkinitramfs</code>等其他命令不再介绍, 可参考: <a href="../gen_sys_file">生成系统下的一些文件</a></p>
+<h3 id="3-2-更新软件源上的initrd"><a href="#3-2-更新软件源上的initrd" class="headerlink" title="3.2 更新软件源上的initrd"></a>3.2 更新软件源上的initrd</h3><p>以<code>Debian</code>系为例, 其余不做演示:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root@loongson-pc:/lib/modules# apt-cache search linux-image</span><br><span class="line">linux-image-4.19.0-17-loongson-3 - Linux kernel, version 4.19 for loongson 3</span><br><span class="line">linux-image-4.19.0-17-loongson-3-dbg - Debug symbols for linux-image-4.19.0-17-loongson-3</span><br><span class="line">linux-image-4.19.0-17-loongson-3-kdump - kdump package</span><br><span class="line">linux-image-4.19.0-18-loongson-3 - Linux kernel, version 4.19 for loongson 3</span><br><span class="line">linux-image-4.19.0-18-loongson-3-dbg - Debug symbols for linux-image-4.19.0-18-loongson-3</span><br><span class="line">linux-image-4.19.0-18-loongson-3-kdump - kdump package</span><br><span class="line">linux-image-4.19.0-19-loongson-3 - Linux kernel, version 4.19 for loongson 3</span><br><span class="line">linux-image-4.19.0-19-loongson-3-dbg - Debug symbols for linux-image-4.19.0-19-loongson-3</span><br><span class="line">linux-image-4.19.0-19-loongson-3-kdump - kdump package</span><br><span class="line">linux-image-loongson-3 - Linux for Loongson 3 (meta-package)</span><br><span class="line">linux-image-loongson-3-dbg - Debugging symbols for Linux loongson-3 configuration (meta-package)</span><br><span class="line">root@loongson-pc:/lib/modules# apt install linux-image-4.19.0-19-loongson-3</span><br><span class="line">正在读取软件包列表... 完成正在分析软件包的依赖关系树       </span><br><span class="line">正在读取状态信息... 完成       </span><br><span class="line">......</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-更新grub-cfg"><a href="#4-更新grub-cfg" class="headerlink" title="4. 更新grub.cfg"></a>4. 更新grub.cfg</h3><p>内核和<code>initrd</code>准备完毕后, 可以增加或修改相应的启动项. 例如<code>vm.mxd</code>是手动编译生成的内核名称. <code>initramfs-4.19.190+.img</code>是根据<code>modules</code>生成的<code>initrd</code>, 增加或者修改相应内容即可:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">menuentry &#x27;vm.mxd&#x27; --class loongnix_20 --class gnu-linux --class gnu --class os $menuentry_id_option &#x27;gnulinux-simple-103a31fa-631b-4ec5-8295-0817394b36d6&#x27; &#123;</span><br><span class="line">        load_video</span><br><span class="line">        gfxmode $linux_gfx_mode</span><br><span class="line">        insmod gzio</span><br><span class="line">        if [ x$grub_platform = xxen ]; then insmod xzio; insmod lzopio; fi</span><br><span class="line">        insmod part_gpt</span><br><span class="line">        insmod ext2</span><br><span class="line">        set root=&#x27;hd0,gpt2&#x27;</span><br><span class="line">        if [ x$feature_platform_search_hint = xy ]; then</span><br><span class="line">          search --no-floppy --fs-uuid --set=root --hint-ieee1275=&#x27;ieee1275//disk@0,gpt2&#x27; --hint-bios=hd0,gpt2 --hint-efi=hd0,gpt2 --hint-baremetal=ahci0,gpt2  6a68fa6e-4fa3-4036-91a3-6f0b2e6ff1b4</span><br><span class="line">        else</span><br><span class="line">          search --no-floppy --fs-uuid --set=root 6a68fa6e-4fa3-4036-91a3-6f0b2e6ff1b4</span><br><span class="line">        fi</span><br><span class="line">        echo    &#x27;Loading Linux 4.19.0-19-loongson-3 ...&#x27;</span><br><span class="line">        linux   /vm.mxd root=UUID=103a31fa-631b-4ec5-8295-0817394b36d6 ro  console=ttyS0,115200 earlycon=uart,mmio,0x1fe001e0 splash resume=PARTUUID=5bb18f47-7756-4be9-b5c0-59d1f1d36fed</span><br><span class="line">        echo    &#x27;Loading initial ramdisk ...&#x27;</span><br><span class="line">        initrd  /initramfs-4.19.190+.img</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+	  
+
+	  <div>
+  		<center>
+		  <div class="pagination">
+<ul class="pagination">
+	
+	
+	
+	
+	
+	
+		
+	
+		
+			
+			
+		
+	
+		
+			
+			
+			
+		
+			
+		
+	
+		
+	
+		
+	
+		
+	
+		
+	
+		
+			
+		
+	
+		
+	
+		
+	
+	
+	
+		<li class="prev disabled"><a><i class="fa fa-arrow-circle-o-left"></i>prev</a></li>
+	
+	<li><a href="/LoongsonGuide/"><i class="fa fa-archive"></i>Home</a></li>
+	
+		<li class="next"><a href="/LoongsonGuide/2023/mywiki/gen_sys_file/" class="alignright next">next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+	
+</ul>
+</div>
+
+		</center>
+	  </div>
+	  
+	</div> <!-- col-md-9/col-md-12 -->
+	
+  </div><!-- row -->
+
+	</div>
+  </div>
+  <div class="container-narrow">
+	<footer> <p>
+  &copy; 2023 <a target="_blank" rel="noopener" href="https://github.com/AydenMeng">Ayden Meng</a>
+  
+      with help from <a href="http://zespia.tw/hexo/" target="_blank">Hexo</a> and <a href="http://getbootstrap.com/" target="_blank">Twitter Bootstrap</a>. Theme by <a target="_blank" rel="noopener" href="http://github.com/wzpan/hexo-theme-wixo/">Wixo</a>.    
+</p>
+ </footer>
+  </div> <!-- container-narrow -->
+  
+<a id="gotop" href="#">   
+  <span>▲</span> 
+</a>
+
+<script src="/LoongsonGuide/js/jquery.imagesloaded.min.js"></script>
+<script src="/LoongsonGuide/js/gallery.js"></script>
+<script src="/LoongsonGuide/js/bootstrap.min.js"></script>
+<script src="/LoongsonGuide/js/jquery.tableofcontents.min.js"></script>
+<script src="/LoongsonGuide/js/tocgenerator.min.js"></script>
+<script src="/LoongsonGuide/js/main.js"></script>
+<script src="/LoongsonGuide/js/search.js"></script> 
+
+
+
+
+<link rel="stylesheet" href="/LoongsonGuide/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/LoongsonGuide/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
+</script>
+
+
+
+   <script type="text/javascript">      
+     var search_path = "search.xml";
+	 if (search_path.length == 0) {
+	 	search_path = "search.xml";
+	 }
+	 var path = "/LoongsonGuide/" + search_path;
+     searchFunc(path, 'local-search-input', 'local-search-result');
+   </script>
+
+
+</body>
+</html>
