@@ -6,11 +6,7 @@
   <title>PMON的使用方法 | LoongsonGuide</title>
   <meta name="author" content="Ayden Meng">
   
-  <meta name="description" content="1. 查看设备1234PMON&amp;gt; devlssyn0wd0usb0
-
-sync0, igb0, em0 等字样,表示网络设备, 即网卡
-wd0, nvme0, usb0, cd0等字样表示存储设备, 即硬盘, U盘等.
-2. 查看pci信息123456789101112131415161718">
+  <meta name="description" content="此网站已迁移至https://loonguser.github.io/">
   
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -49,7 +45,7 @@ wd0, nvme0, usb0, cd0等字样表示存储设备, 即硬盘, U盘等.
   <div class="container" id="container">
 	<div class="content">
 	  <div class="page-header">		
-  <h1><a class="brand" href="/LoongsonGuide/">LoongsonGuide</a><span class="split"></span><span class="title">PMON的使用方法</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2023-10-19</span></h1>
+  <h1><a class="brand" href="/LoongsonGuide/">LoongsonGuide</a><span class="split"></span><span class="title">PMON的使用方法</span><span class="date" id="title-date"><i class="fa fa-clock-o"></i> 2023-12-02</span></h1>
 </div>		
 
 <div class="row page">
@@ -71,69 +67,7 @@ wd0, nvme0, usb0, cd0等字样表示存储设备, 即硬盘, U盘等.
 	
 
 	  <!-- content -->
-	  <h2 id="1-查看设备"><a href="#1-查看设备" class="headerlink" title="1. 查看设备"></a>1. 查看设备</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; devls</span><br><span class="line">syn0</span><br><span class="line">wd0</span><br><span class="line">usb0</span><br></pre></td></tr></table></figure>
-
-<p><code>sync0</code>, <code>igb0</code>, <code>em0</code> 等字样,表示网络设备, 即网卡</p>
-<p><code>wd0</code>, <code>nvme0</code>, <code>usb0</code>, <code>cd0</code>等字样表示存储设备, 即硬盘, <code>U</code>盘等.</p>
-<h2 id="2-查看pci信息"><a href="#2-查看pci信息" class="headerlink" title="2. 查看pci信息"></a>2. 查看pci信息</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; pciscan</span><br><span class="line">&gt;&gt; BUS  0 &lt;&lt;</span><br><span class="line">Dev Fun Device description</span><br><span class="line">--------------------------</span><br><span class="line">  0   0 vendor/product: 0x0014/0x7a00 (bridge, host, interface: 0x00, revision: 0x00)</span><br><span class="line">0x00000000:0x00000000 mem @0x00000000, 0 bytes</span><br><span class="line">  0   1 vendor/product: 0x0014/0x7a10 (bridge, host, interface: 0x00, revision: 0x01)</span><br><span class="line">0x00000000:0x00000000 mem @0x00000000, 0 bytes</span><br><span class="line">  0   2 vendor/product: 0x0014/0x7a20 (bridge, host, interface: 0x00, revision: 0x01)</span><br><span class="line">0x00000000:0x00000000 mem @0x00000000, 0 bytes</span><br><span class="line">  0   3 vendor/product: 0x0014/0x7a30 (bridge, host, interface: 0x00, revision: 0x00)</span><br><span class="line">0x00000000:0x00000000 mem @0x00000000, 0 bytes</span><br><span class="line">  4   0 vendor/product: 0x0014/0x7a24 (serialbus, USB, interface: 0x10, revision: 0x02)</span><br><span class="line">64-bit mem,low address</span><br><span class="line">0x59648004:0xffff8004 mem @0x59648000, 32768 bytes</span><br><span class="line">0x00000000:0x00000000 mem @0x00000000, 0 bytes</span><br><span class="line">  ......</span><br><span class="line">  ......</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-产看固件版本信息"><a href="#3-产看固件版本信息" class="headerlink" title="3. 产看固件版本信息"></a>3. 产看固件版本信息</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; vers</span><br><span class="line">PMON: PMON 5.0.3-Release (loongson) #233: Wed Oct 18 15:09:40 CST 2023 commit d044be8f495e97082c8905b131d525ef31ade0b9 Author: Xiangdong Meng &lt;mengxiangdong@loongson.cn&gt; Date:   Wed Sep 6 15:15:31 2023 +0800</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-查看寄存器信息"><a href="#4-查看寄存器信息" class="headerlink" title="4. 查看寄存器信息"></a>4. 查看寄存器信息</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; d8 0x800000001fe00020 2</span><br><span class="line">800000001fe00020 : 0000303030364133 0000000000000000 3A6000..........</span><br></pre></td></tr></table></figure>
-
-<h2 id="5-查看磁盘信息"><a href="#5-查看磁盘信息" class="headerlink" title="5. 查看磁盘信息"></a>5. 查看磁盘信息</h2><p>这里<code>fdisk</code>命令后面的设备名是在第一节中<code>devls</code>命令列出来的.</p>
-<p><code>PMON</code>支持<code>GPT</code>和<code>MBR</code>分区</p>
-<p><code>PMON</code>暂不支持设备热插拔.</p>
-<p><code>MBR</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; fdisk usb0</span><br><span class="line"></span><br><span class="line">Device    Boot  Start       End         Sectors     Id        System</span><br><span class="line">usb0a           2048        122880000   122877952   83        Linux</span><br></pre></td></tr></table></figure>
-
-<p><code>GPT</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; fdisk usb0</span><br><span class="line"></span><br><span class="line">Device    Boot  Start       End         Sectors     Id        System</span><br><span class="line">usb0a           2048        122877951   122875904   0FC63DAF  Linux filesystem</span><br></pre></td></tr></table></figure>
-
-<h2 id="6-查看磁盘中的文件"><a href="#6-查看磁盘中的文件" class="headerlink" title="6. 查看磁盘中的文件"></a>6. 查看磁盘中的文件</h2><p><code>/dev/fs/</code>后的字符是<code>fdisk usb0</code>命令中, <code>Device</code>一列中显示的内容.</p>
-<p><code>PMON</code>只支持<code>Fat</code>, <code>Ext2/3/4</code>, <code>ISO9660</code>等分区</p>
-<p><code>PMON</code>在查看文件时, 通常不用指定文件系统类型.</p>
-<p>比如加载一个<code>fat</code>分区的内容: <code>load /dev/fs/usb0/</code>和<code>load /dev/fs/fat@usb0/</code>的效果是一样的</p>
-<p><code>Fat</code>分区:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; load /dev/fs/usb0/</span><br><span class="line">gz.mxd                                  &lt;FILE&gt;         993222</span><br><span class="line">boot.cfg                                &lt;FILE&gt;         403</span><br><span class="line">vm.mxd                                  &lt;FILE&gt;         95024056</span><br><span class="line"></span><br><span class="line">/dev/fs/fat@usb0/: Is a directory</span><br></pre></td></tr></table></figure>
-
-<p><code>ext2</code>&#x2F;<code>ext3</code>&#x2F;<code>ext4</code>分区:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; load /dev/fs/usb1a/</span><br><span class="line">|./ ../ lost+found/ gz.mxd boot.cfg</span><br><span class="line">/dev/fs/ext4@usb1a/: Undefined error: 0</span><br></pre></td></tr></table></figure>
-
-<p><img src="/LoongsonGuide/images/pmon/1.png" alt="load MBR"></p>
-<h2 id="7-加载内核"><a href="#7-加载内核" class="headerlink" title="7. 加载内核"></a>7. 加载内核</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; load /dev/fs/usb0a/vm.mxd</span><br><span class="line">\Loading file: /dev/fs/fat@usb0a/vm.mxd (elf)</span><br><span class="line">(elf)</span><br><span class="line">0x9000000000200000/20053784 + 0x151ff18/922672(z) + 31926 syms|</span><br><span class="line">Entry address is 00c01000</span><br></pre></td></tr></table></figure>
-
-<h2 id="8-加载initrd"><a href="#8-加载initrd" class="headerlink" title="8. 加载initrd"></a>8. 加载initrd</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; initrd /dev/fs/usb0a/initrd.img-4.19.0-19-loongson-3</span><br><span class="line">Loading initrd image /dev/fs/usb0a/initrd.img-4.19.0-19-loongson--dl_offset 9000000090000000 addr 9000000090000000</span><br><span class="line">(bin)</span><br></pre></td></tr></table></figure>
-
-<h2 id="9-启动内核"><a href="#9-启动内核" class="headerlink" title="9. 启动内核"></a>9. 启动内核</h2><p>必须要在加载内核之后执行:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; g console=ttyS0,115200 earlycon=uart,mmio,0x1fe001e0 root=/dev/sda3</span><br><span class="line">Warning! NVRAM checksum fail. Reset!</span><br><span class="line">Reached finished_ap_limit=7 in a5 microseconds</span><br><span class="line">BootCore ID: 0 Collect AP: 7 Total Core: 8</span><br><span class="line">ACPI: ACPI tables init.</span><br><span class="line">VBIOS crc check is wrong,use default setting!</span><br><span class="line">GMEM: Get vbios from ls3a spi done!</span><br><span class="line">Init acpi table OK!</span><br><span class="line">set coherent</span><br><span class="line">[    0.000000] Linux version 4.19.190+ (mengxiangdong@5.5) (gcc version 8.3.0 (GCC)) #9 SMP Tue Oct 17 11:14:31 CST 2023</span><br><span class="line">[    0.000000] 64-bit Loongson Processor probed (LA664 Core)</span><br><span class="line">[    0.000000] CPU0 revision is: 0014d000 (Loongson-64bit)</span><br><span class="line">[    0.000000] FPU0 revision is: 00000001</span><br><span class="line">[    0.000000] efi:  SMBIOS=0xfffe000  ACPI 2.0=0xfefe000  NEWMEM=0xb036800</span><br><span class="line">[    0.000000] earlycon: uart0 at MMIO 0x000000001fe001e0 (options &#x27;&#x27;)</span><br><span class="line">[    0.000000] bootconsole [uart0] enabled</span><br><span class="line">[    0.000000] ACPI: Early table checksum verification disabled</span><br><span class="line">[    0.000000] ACPI: RSDP 0x000000000FEFE000 000024 (v02 LOONGS)</span><br><span class="line">......</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
-
-<h2 id="10-加载引导文件"><a href="#10-加载引导文件" class="headerlink" title="10. 加载引导文件"></a>10. 加载引导文件</h2><p><code>UEFI</code>通过找到<code>grub.efi</code>, 接着找到<code>grub.cfg</code>, 进而引导内核</p>
-<p>而<code>PMON</code>只需要找到<code>boot.cfg</code>文件即可. <code>PMON</code>默认会从<code>/</code>和<code>/boot</code>目录中找<code>boot.cfg</code></p>
-<p>倘若没有找到, 可以手动加载:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; bl /dev/fs/fat@usb0a/boot.cfg</span><br><span class="line"></span><br><span class="line">������������������������������������������������Ŀ</span><br><span class="line">�                 Boot Menu List                 �</span><br><span class="line">������������������������������������������������Ĵ</span><br><span class="line">� -&gt; 1 Loongnix 20 GNU/Linux 4.19.0-19-loongson-3�</span><br><span class="line">�                                                �</span><br><span class="line">�                                                �</span><br><span class="line">�                                                �</span><br><span class="line">�                                                �</span><br><span class="line">�                                                �</span><br><span class="line">�                                                �</span><br><span class="line">�                                                �</span><br><span class="line">�                                                �</span><br><span class="line">� Please Select Boot Menu [1]                    �</span><br><span class="line">��������������������������������������������������</span><br><span class="line">Use the UP and DOWN keys to select the entry.</span><br><span class="line">Press ENTER to boot selected OS.</span><br><span class="line">Press &#x27;c&#x27; to command-line.</span><br><span class="line">                                                 Booting system in [2] second(s)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="11-查看文件"><a href="#11-查看文件" class="headerlink" title="11. 查看文件"></a>11. 查看文件</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; devcp /dev/fs/fat@usb0a/boot.cfg /dev/tty0</span><br><span class="line"></span><br><span class="line">default 0</span><br><span class="line">timeout 3</span><br><span class="line">showmenu 0</span><br><span class="line"></span><br><span class="line">title Loongnix 20 GNU/Linux 4.19.0-19-loongson-3</span><br><span class="line">    kernel /dev/fs/fat@usb0a/vmlinuz-4.19.0-19-loongson-3</span><br><span class="line">    initrd /dev/fs/fat@usb0a/initrd.img-4.19.0-19-loongson-3</span><br><span class="line">    args   root=/dev/sda3 console=ttyS0,115200 loglevel=8</span><br></pre></td></tr></table></figure>
-
-<h2 id="12-配置网络"><a href="#12-配置网络" class="headerlink" title="12. 配置网络"></a>12. 配置网络</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; devls</span><br><span class="line">Device name  Type</span><br><span class="line">syn0         IFNET</span><br><span class="line">usb0         DISK</span><br><span class="line">PMON&gt; ifconfig syn0 192.168.1.13</span><br><span class="line">synopGMAC_linux_open called</span><br><span class="line">Version = 0xd137</span><br><span class="line">MacAddr = 0x3e  0xd0    0x62    0xf5    0x46    0x94</span><br><span class="line"></span><br><span class="line">===phy HALFDUPLEX MODE</span><br><span class="line">DMA status reg = 0x0 before cleared!</span><br><span class="line">DMA status reg = 0x0 after cleared!</span><br><span class="line">register poll interrupt: gmac 0</span><br><span class="line">==arp_ifinit done</span><br><span class="line">===phy FULLDUPLEX MODE</span><br><span class="line">Link is with 1000M Speed</span><br><span class="line"></span><br><span class="line">PMON&gt; </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="13-加载网络文件"><a href="#13-加载网络文件" class="headerlink" title="13. 加载网络文件"></a>13. 加载网络文件</h2><p><code>PMON</code>支持从网络加载内核, 支持的协议有<code>http</code>和<code>tftp</code></p>
-<p><code>http</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; load http://192.168.1.4/vm.mxd</span><br><span class="line">\Loading file: http://192.168.1.4/vm.mxd (elf)</span><br><span class="line">(elf)</span><br><span class="line">0x9000000000200000/20053784 + 0x151ff18/922672(z) + 31926 syms|</span><br><span class="line">Entry address is 00c01000</span><br></pre></td></tr></table></figure>
-
-<p><code>tftp</code>:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; load tftp://192.168.1.4/vm.mxd</span><br><span class="line">\Loading file: tftp://192.168.1.4/vm.mxd (elf)</span><br><span class="line">(elf)</span><br><span class="line">0x9000000000200000/20053784 + 0x151ff18/922672(z) + 31926 syms|</span><br><span class="line">Entry address is 00c01000</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="14-更新固件"><a href="#14-更新固件" class="headerlink" title="14. 更新固件"></a>14. 更新固件</h2><p><code>PMON</code>更新固件的命令为<code>fload</code></p>
-<p>与加载内核类似, 可以从硬盘加载, 也可以从网络加载</p>
-<p>从硬盘加载:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; fload /dev/fs/usb0a/gz.mxd</span><br><span class="line">Loading file: /dev/fs/fat@usb0a/gz.mxd dl_offset 900000000f800000 addr 900000000f800000</span><br><span class="line">(bin)</span><br><span class="line">-</span><br><span class="line">Loaded 993222 bytes</span><br><span class="line"></span><br><span class="line">Programming flash 900000000f800000:f27c6 into 800000001c000000</span><br><span class="line">Erase end!</span><br><span class="line">-Programming end!</span><br></pre></td></tr></table></figure>
-
-<p>从<code>tftp</code>服务器加载:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; fload tftp://192.168.1.4/gz.mxd</span><br><span class="line">Loading file: tftp://192.168.1.4/gz.mxd dl_offset 900000000f800000 addr 900000000f800000</span><br><span class="line">(bin)</span><br><span class="line">-</span><br><span class="line">Loaded 993222 bytes</span><br><span class="line"></span><br><span class="line">Programming flash 900000000f800000:f27c6 into 800000001c000000</span><br><span class="line">Erase end!</span><br><span class="line">-Programming end!</span><br></pre></td></tr></table></figure>
-
-<p>从<code>http</code>服务器加载:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PMON&gt; fload http://192.168.1.4/gz.mxd</span><br><span class="line">Loading file: http://192.168.1.4/gz.mxd dl_offset 900000000f800000 addr 900000000f800000</span><br><span class="line">(bin)</span><br><span class="line">-</span><br><span class="line">Loaded 993222 bytes</span><br><span class="line"></span><br><span class="line">Programming flash 900000000f800000:f27c6 into 800000001c000000</span><br><span class="line">Erase end!</span><br><span class="line">-Programming end!</span><br></pre></td></tr></table></figure>
+	  <p>此网站已迁移至<a target="_blank" rel="noopener" href="https://loonguser.github.io/">https://loonguser.github.io/</a></p>
 	  
 
 	  <div>
@@ -149,21 +83,11 @@ wd0, nvme0, usb0, cd0等字样表示存储设备, 即硬盘, U盘等.
 		
 	
 		
-			
-		
-	
-		
-	
-		
-	
-		
 	
 		
 	
 		
 			
-		
-	
 		
 	
 		
@@ -174,9 +98,19 @@ wd0, nvme0, usb0, cd0等字样表示存储设备, 即硬盘, U盘等.
 		
 	
 		
+	
+		
 			
 			
 			
+		
+	
+		
+			
+		
+	
+		
+	
 		
 	
 	
@@ -185,7 +119,7 @@ wd0, nvme0, usb0, cd0等字样表示存储设备, 即硬盘, U盘等.
 	
 	<li><a href="/LoongsonGuide/"><i class="fa fa-archive"></i>Home</a></li>
 	
-		<li class="next"><a href="/LoongsonGuide/2023/mywiki/firmware/" class="alignright next">next<i class="fa fa-arrow-circle-o-right"></i></a></li>
+		<li class="next"><a href="/LoongsonGuide/2023/mywiki/grub/" class="alignright next">next<i class="fa fa-arrow-circle-o-right"></i></a></li>
 	
 </ul>
 </div>
